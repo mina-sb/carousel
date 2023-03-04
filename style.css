@@ -1,16 +1,99 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins';
-}
-
-:root {
-    --text-color: #292929;
-    --bg-color: #f8f7f7;
-    --other-color: #868686;
-}
-
 body {
-    background-color: var(--bg-color);
+    margin: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body,
+.carousel {
+    height: 100%;
+}
+
+.carousel {
+    width: 100%;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.carousel-images {
+    width: 300%;
+    height: 100%;
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.carousel img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.carousel-controls {
+    position: absolute;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+input {
+    display: none;
+}
+
+.dots {
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 400px;
+    background: linear-gradient(transparent, #000 90%);
+    display: flex;
+    gap: 12px;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 50px;
+
+}
+
+label {
+    display: block;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0.3;
+    backdrop-filter: blur(20px);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+input:nth-child(1):checked~.dots label:nth-child(1) {
+    opacity: 1;
+}
+
+input:nth-child(1):checked~.carousel-images {
+    translate: 0;
+}
+
+input:nth-child(2):checked~.dots label:nth-child(2) {
+    opacity: 1;
+}
+
+input:nth-child(2):checked~.carousel-images {
+    translate: -100vw;
+}
+
+input:nth-child(3):checked~.dots label:nth-child(3) {
+    opacity: 1;
+}
+
+input:nth-child(3):checked~.carousel-images {
+    translate: -200vw;
 }
